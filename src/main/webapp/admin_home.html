@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Home Page</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+	
+	<style>
+		.header {
+			overflow: hidden;
+		}
+		.header h3{
+			float: left;
+			margin: 0;
+		}
+		.header a {
+			float: right;
+			margin-right: 25px;
+		}
+	</style>
+	
+</head>
+
+<body style="margin-left:20px;">
+	<br>
+	<div class="header">
+		<h3><b>Admin Home Page</b></h3>
+		<a href="LogoutServlet" class="btn btn-primary">Logout</a>
+	</div>
+	<br>
+	
+	<h5><b>Railway Crossings</b></h5>
+	
+	<a href="AdminServlet" class="btn btn-primary">Home</a>
+	<a href="add_railway_crossing.html" class="btn btn-primary" type="submit">Add Railway Crossing</a> <br><br>
+	<!-- <a href="admin_home.html" class="btn btn-primary">Search Crossing</a> <br><br> -->
+	
+	<form action="Admin_SearchCrossingServlet" method="get">
+		<b>Search Crossing: </b> <br>
+		<input type="text" name="search" style="border-radius:15px; width:250px; height:20px; border:royalblue 0.5px solid; margin-top:5px; margin-bottom:5px;"/> <br>
+		<input type="submit" value="Search" style="color:black; background-color:palegrey; border:white 0.2px solid; border-radius:15px; width:200px; height:25px;"/>
+	
+		<!-- <button onclick="windows.location.href='Admin_SearchCrossingServlet'" class="btn btn-primary">Search</button> -->
+	</form>
+	
+	<br><br>
+	
+</body>
+</html>

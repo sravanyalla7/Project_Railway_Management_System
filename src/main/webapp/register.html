@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Registration page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="text-align:center; margin:80px;">
+	<h3><b>Railway Crossing</b></h3>
+	<p>User Register</p>
+	
+	<form action="RegisterServlet" method="post">
+		<b>Enter Name</b> <br>
+			<input type="text" name="username" required> <br><br>
+		<b>Enter Email</b> <br>
+			<input type="email" name="email" required> <br><br>
+		<b>Enter Password</b> <br>
+			<input type="password" name="password" required> <br><br>
+			
+		<!-- <input type="submit" value="Register"> -->
+		
+		<!-- This one creates a button using bootstrap -->
+		<!-- <button type="button" class="btn btn-primary">Register</button> -->
+		<input class="btn btn-success" type="submit" value="Register">
+		
+		<!-- <a> tag is used to define the link; <u> tag is used to underline the text -->
+		<p>Already have an account? <a href="login.html" style="text-decoration:underline;">Login instead</a> </p>
+	</form>
+</body>
+
+</html>

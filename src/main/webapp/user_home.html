@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>User Home Page</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<style>
+		.box {
+		    border: 4px;
+		    padding: 20px;
+		    margin: 20px;
+		    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+		}
+		.header {
+			overflow: hidden;
+		}
+		.header h3{
+			float: left;
+			margin: 0;
+		}
+		.header a {
+			float: right;
+			margin-right: 25px;
+		}	
+	</style>
+</head>
+
+<body style="margin-left:20px;">
+	<br>
+	<div class="header">
+		<h3><b>User Home Page</b></h3> 
+		<a href="LogoutServlet" class="btn btn-primary">Logout</a>
+	</div>
+	<br>
+	
+	<a href="UserServlet" class="btn btn-primary">All</a>
+	<!-- <a href="FavoriteCrossingServlet" class="btn btn-primary">Favorite Crossing</a> -->
+	<br><br>
+	
+	
+	<form action="SearchCrossingServlet" method="get">
+	<!-- Hidden input field to differentiate the "Search for All Crossings" and "Search for Favorite Crossings" in the same Servlet -->
+	<input type="hidden" name="source" value="searchAll"/>
+			
+	Search Railway Crossing: <br>
+	<input type="text" name="search" style="border-radius:15px; width:250px; height:20px; border:royalblue 0.5px solid; margin-top:5px; margin-bottom:5px;"/> <br>
+	<input type="submit" value="Search" style="color:black; background-color:palegrey; border:white 0.2px solid; border-radius:15px; width:200px; height:25px;"/>
+	</form>
+	
+	<br>
+	
+</body>
+</html>
