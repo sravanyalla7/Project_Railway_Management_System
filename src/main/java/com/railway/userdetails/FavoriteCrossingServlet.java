@@ -68,8 +68,6 @@ public class FavoriteCrossingServlet extends HttpServlet {
                 
 				conn = DBUtil.getDBConnection();
 				
-				//Statement stmt = conn.createStatement();
-				//String query = "SELECT * FROM RAILWAY_CROSSING INNER JOIN FAVORITE_CROSSING ON RAILWAY_ID=FAVORITE_ID";
 				String query = "SELECT A.*, B.RAILWAY_ID, C.USER_ID FROM RAILWAY_CROSSING A INNER JOIN FAVORITE_CROSSING B ON A.RAILWAY_ID = B.RAILWAY_ID INNER JOIN USER C ON C.USER_ID = B.USER_ID WHERE C.USER_ID=?";
 				
 				PreparedStatement pstmt = conn.prepareStatement(query);
@@ -128,9 +126,6 @@ public class FavoriteCrossingServlet extends HttpServlet {
 		
 		int addFavorite_railwayId = Integer.parseInt(request.getParameter("addFavorite_railwayId"));
 		int addFavorite_userId = Integer.parseInt(request.getParameter("addFavorite_userId"));
-		
-		//RequestDispatcher rd = request.getRequestDispatcher("UserServlet");
-		//rd.include(request, response);
 		
 		Connection conn = null;
 		

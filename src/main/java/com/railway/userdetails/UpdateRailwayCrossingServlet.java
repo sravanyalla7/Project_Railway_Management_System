@@ -85,7 +85,6 @@ public class UpdateRailwayCrossingServlet extends HttpServlet {
 					out.println("<input type='radio' name='status' value='Close' required>Close <br> <br>");
 					
 					out.println("<input class='btn btn-success' type='submit' value='Update'> <br><br>");
-					//out.println("<button onclick=\"window.location.href='update.html'\">Update</button>");
 					out.println("</body>");
 					
 					out.println("</html>");

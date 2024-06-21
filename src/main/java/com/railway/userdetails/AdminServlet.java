@@ -38,7 +38,7 @@ public class AdminServlet extends HttpServlet {
 		
 		Connection conn = null;
 		
-		//Getting the session if it exists
+		//Getting the session if it exists or if there is no session then it will return null
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
 			try {
@@ -56,7 +56,6 @@ public class AdminServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("admin_home.html");
 				rd.include(request, response);
 				
-				//border='2' cellspacing='10' cellpadding='15'
 				out.println("<table class='table'>");
 				out.println("<thead>");
 				out.println("<tr>");

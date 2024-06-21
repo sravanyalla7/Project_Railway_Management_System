@@ -52,23 +52,24 @@ public class SearchCrossingServlet extends HttpServlet {
 		
 		//Getting the session if it exists - getSession(false) gives us the session if exists otherwise it returns null
 		HttpSession session = request.getSession(false);
-		
-		/*
-		 * Request is passed from LoginServlet with user_id attribute so retrieve it here as:-
-		 * 		--> getAttribute() method returns the Object so we are down casting it to Integer
-		 * 		--> We are using session.getAttribute() method instead of request.getAttribute() because once we refresh the page
-		 * 			or go back then request.getAttribute() will loose the value and returns null but session.getAttribute() 
-		 * 			will hold the value until the session is invalidated or expires.
-		 * 
-		 * 		--> session.getAttribute() returns an Object so down casting it to Integer
-		 */
-		Integer user_id_Wrapper = (Integer)session.getAttribute("user_id");
-		
-		// Unboxing: Convert Integer to int
-		int user_id = user_id_Wrapper != null ? user_id_Wrapper.intValue() : 0;
-		
-		
+			
 		if(session!=null) {
+			
+			/*
+			 * Request is passed from LoginServlet with user_id attribute so retrieve it here as:-
+			 * 		--> getAttribute() method returns the Object so we are down casting it to Integer
+			 * 		--> We are using session.getAttribute() method instead of request.getAttribute() because once we refresh the page
+			 * 			or go back then request.getAttribute() will loose the value and returns null but session.getAttribute() 
+			 * 			will hold the value until the session is invalidated or expires.
+			 * 
+			 * 		--> session.getAttribute() returns an Object so down casting it to Integer
+			 */
+			Integer user_id_Wrapper = (Integer)session.getAttribute("user_id");
+			
+			// Unboxing: Convert Integer to int
+			int user_id = user_id_Wrapper != null ? user_id_Wrapper.intValue() : 0;
+			
+			
 			if(source.equals("searchAll")) {
 				RequestDispatcher rd = request.getRequestDispatcher("user_home.html");
 				rd.include(request, response);
@@ -80,8 +81,6 @@ public class SearchCrossingServlet extends HttpServlet {
 				try {
 					conn = DBUtil.getDBConnection();
 					
-					//We can't put in the query as LIKE '%?%' because SQL does not allow it
-					//So use it as below:- (57-60 lines)
 					String query = "SELECT * FROM RAILWAY_CROSSING WHERE NAME LIKE ?";
 					pstmt = conn.prepareStatement(query);
 					searchPattern = "%" +search +"%";
@@ -132,7 +131,6 @@ public class SearchCrossingServlet extends HttpServlet {
 				try {
 					conn = DBUtil.getDBConnection();
 					
-					//String query = "SELECT * FROM RAILWAY_CROSSING INNER JOIN FAVORITE_CROSSING ON RAILWAY_ID=FAVORITE_ID WHERE NAME LIKE ?";
 					String query = "SELECT A.*, B.RAILWAY_ID, C.USER_ID FROM RAILWAY_CROSSING A INNER JOIN FAVORITE_CROSSING B ON A.RAILWAY_ID = B.RAILWAY_ID INNER JOIN USER C ON C.USER_ID = B.USER_ID WHERE C.USER_ID=? AND NAME LIKE ?";
 					pstmt = conn.prepareStatement(query);
 					searchPattern = "%" +search +"%";

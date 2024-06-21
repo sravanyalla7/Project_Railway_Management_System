@@ -26,12 +26,7 @@ public class RegisterServlet extends HttpServlet {
      * Default constructor. 
      */
     public RegisterServlet() {
-//    	try {
-//    		//Getting the database connection
-//    		conn = DBUtil.getDBConnection();
-//    	} catch(Exception e) {
-//    		e.printStackTrace();
-//    	}
+    	
     }
 
 	/**
@@ -59,9 +54,9 @@ public class RegisterServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		try {
+			//Getting the database connection
 			conn = DBUtil.getDBConnection();
 			
-			//Getting the database connection through constructor and create statement to store the values in the database
 			String query = "INSERT INTO USER (USERNAME, EMAIL, PASSWORD) VALUES(?, ?, ?)";
 			
 			PreparedStatement pstmt = conn.prepareStatement(query);
@@ -71,7 +66,6 @@ public class RegisterServlet extends HttpServlet {
 			
 			rowsInserted = pstmt.executeUpdate();
 			
-			//System.out.println("Rows inserted successfully: " +rowsInserted);
 			if(rowsInserted>0) {
 				RequestDispatcher rd = request.getRequestDispatcher("login.html");
 				rd.include(request, response);

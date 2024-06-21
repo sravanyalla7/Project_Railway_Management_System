@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 				String p = rs.getString(4);
 				if(e.equalsIgnoreCase(email) && p.equals(password)) {
 					
-					//Creating a session and store user information
+					//Creating a new session and store user information
 					HttpSession session = request.getSession();
 					
 					if(session!=null) {

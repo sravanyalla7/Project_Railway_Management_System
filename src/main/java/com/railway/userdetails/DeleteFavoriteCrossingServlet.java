@@ -47,9 +47,6 @@ public class DeleteFavoriteCrossingServlet extends HttpServlet {
 		int removeFavorite_railwayId = Integer.parseInt(request.getParameter("removeFavorite_railwayId"));
 		int removeFavorite_userId = Integer.parseInt(request.getParameter("removeFavorite_userId"));
 		
-		//RequestDispatcher rd = request.getRequestDispatcher("UserServlet");
-		//rd.include(request, response);
-		
 		Connection conn = null;
 		
 		HttpSession session = request.getSession(false);
