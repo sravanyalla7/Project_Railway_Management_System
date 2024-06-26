@@ -39,6 +39,39 @@ public class DeleteRailwayCrossingServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
+		HttpSession session = request.getSession(false);
+		
+		if(session!=null) {
+			out.println("<html> <body>");
+			
+			out.println("<div style=\"position:relative; left:30%; border:1px solid grey; padding:10px; width:50%; min-height:10%; text-align:center; background-color:lightyellow; font-size:15px;\">");
+			out.println("Do you want to delete it, please confirm? <br>");
+			
+			out.println("<form action='DeleteRailwayCrossingServlet' method='post'>");
+			out.println("<input type='hidden' name='id' value='"+ id +"'>");
+			out.println("<input type='submit' value='YES'>");
+			out.println("</form> <br>");
+			
+			out.println("<button onclick=\"window.location.href='AdminServlet'\">NO</button>");
+			out.println("</div>");
+			
+			out.println("</body> </html>");
+		} else {
+			response.sendRedirect("login.html");
+		}		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		PrintWriter out = response.getWriter();
+		
 		Connection conn = null;
 		
 		HttpSession session = request.getSession(false);
@@ -77,15 +110,6 @@ public class DeleteRailwayCrossingServlet extends HttpServlet {
 		} else {
 			response.sendRedirect("login.html");
 		}
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

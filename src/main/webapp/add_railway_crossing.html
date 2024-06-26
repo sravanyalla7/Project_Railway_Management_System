@@ -16,7 +16,8 @@
 		<b>Address</b> <br>
 			<input type="text" name="address" required> <br><br>
 		<b>Train Schedule</b> <br>
-			<input type="time" name="train_schedule" placeholder="HH:MM am" required pattern="[0-9]{2}:[0-9]{2}"> <br><br>
+			<input type="time" name="train_schedule" placeholder="HH:MM" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"> <br><br>
+			<!-- pattern will help us to validate the time on client-side whether the time entered is in 24-hour format -->
 		<b>Person In-charge</b> <br>
 			<input type="text" name="person_InCharge" required> <br><br>
 		<b>Crossing Status</b> <br>
